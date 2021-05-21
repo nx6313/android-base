@@ -2,7 +2,7 @@
 
 ## 如何使用
 
-### Step 1. Add the JitPack repository to your build file
+### Step 1. 添加仓库配置
 ###### Add it in your root build.gradle at the end of repositories:
     allprojects {
         repositories {
@@ -11,7 +11,7 @@
         }
     }
 
-### Step 2. Add the dependency
+### Step 2. 添加依赖项
     dependencies {
         implementation 'com.github.nx6313:android-base:VERSION'
     }
@@ -26,21 +26,20 @@
         ...
     }
     
-## Activity 创建规则方式
+## Activity 创建规则方式（默认含有沉浸式状态栏配置）
 
 ##### 示例代码
     class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
         override fun createFinish() {
         }
     }
-> 说明：正常创建好 Activity 文件后，将继承类改为 BaseActivity 即可。范型需指定当前 activity 页面的 ViewBinding 对象。
-> 父类 BaseActivity 接受两个参数：
-* 第一个参数为当前页面的 inflate
-* 第二个参数为页面状态栏信息文字的颜色，Boolean 类型 [ true: 黑色文字、false: 白色文字 ]（可不传，默认值为：true）
+> 正常创建好 Activity 文件后，将继承类改为 BaseActivity 即可。
+> 范型需指定当前 activity 页面的 ViewBinding 对象。
+>> 父类 BaseActivity 接受一个参数：当前页面的 inflate
 
-## 配置沉浸式状态栏
+## 配置沉浸式状态栏参数
 
-> 默认已集成沉浸式状态栏，你只需要将 manifests 中的 application 主题配置为以下即可。
+> 将 manifests 中的 application 主题按照以下配置。
 ```java
 android:theme="@style/Theme.AndroidBase"
 ```
@@ -50,10 +49,12 @@ android:theme="@style/Theme.AndroidBase"
 <com.nx.androidbase.widget.StatusBarHeightView />
 ```
 > StatusBarHeightView 组件的属性有：
-* use_type [enum 可选值：use_height、use_padding_top]
 * title_bar_color [color 标题栏颜色，默认白色]
-* main_bg_color [color 页面主体颜色，默认透明]
+* main_bg_color [color 页面主体颜色，默认 TRANSPARENT]
 * title_bar_show_shadow [boolean 是否显示标题栏底部阴影，默认 false]
+* show_title_bar [boolean 是否显示标题栏，默认 true]
+* title_bar_label [string 标题栏文字标题，默认 '']
+* title_bar_label_position [enum 标题栏文字标题显示位置，CENTER / START，默认 CENTER]
 
 ## 分包 配置 MultiDex
 
