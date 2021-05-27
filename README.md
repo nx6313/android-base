@@ -39,11 +39,38 @@
 
 ##### 继承 BaseActivity 的 Activity 中可以直接调用的方法
 ```java
-1. updateAppTitle(title: String) // 修改页面 appBar 标题的方法
-2. setBackListener(backListener: BackListener) // 设置页面后退前的监听事件，返回 false 则阻断当前页面的后退逻辑
-3. addAppTitleBarTxtHandle(vararg handle: Pair<String, (activity: Activity) -> Unit>) // 添加文字操作按钮到 appTitleBar
-4. addAppTitleBarImgHandle(vararg handle: Pair<Int, (activity: Activity) -> Unit>) // 添加图标操作按钮到 appTitleBar
-5. clearAppTitleBarHandle() // 移除 appTitleBar 中的所有操作按钮
+/**
+ * 修改页面 appBar 标题的方法
+ * 
+ * @param title 想要修改为的标题栏文本
+ */
+updateAppTitle(title: String)
+
+/**
+ * 设置页面后退前的监听事件，返回 false 则阻断当前页面的后退逻辑
+ * 
+ * @param backListener 页面返回监听事件
+ */
+setBackListener(backListener: BackListener)
+
+/**
+ * 添加文字操作按钮到 appTitleBar
+ * 
+ * @param handle 要添加的文字菜单组
+ */
+addAppTitleBarTxtHandle(vararg handle: Pair<String, (activity: Activity) -> Unit>)
+
+/**
+ * 添加图标操作按钮到 appTitleBar
+ * 
+ * @param handle 要添加的图片菜单组
+ */
+addAppTitleBarImgHandle(vararg handle: Pair<Int, (activity: Activity) -> Unit>)
+
+/**
+ * 移除 appTitleBar 中的所有操作按钮
+ */
+clearAppTitleBarHandle()
 ```
 
 ## 配置沉浸式状态栏参数
