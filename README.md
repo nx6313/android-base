@@ -7,7 +7,8 @@
     allprojects {
         repositories {
             ...
-            maven { url 'https://raw.githubusercontent.com/nx6313/android-base/master' }
+            maven { url 'https://raw.githubusercontent.com/nx6313/android-base/master' } // 本框架依赖库
+            maven { url 'http://developer.huawei.com/repo/' } // 华为二维码识别库
         }
     }
 
@@ -71,6 +72,11 @@ addAppTitleBarImgHandle(vararg handle: Pair<Int, (activity: Activity) -> Unit>)
  * 移除 appTitleBar 中的所有操作按钮
  */
 clearAppTitleBarHandle()
+
+/**
+ * 设置检查，用以判断触摸位置是否允许触发当前如果显示的输入法键盘的关闭
+ */
+setCheckerTouchForKeyboardNeedHide(listener: (x: Int, y: Int) -> Boolean)
 ```
 
 ## 配置沉浸式状态栏参数
