@@ -75,8 +75,21 @@ clearAppTitleBarHandle()
 
 /**
  * 设置检查，用以判断触摸位置是否允许触发当前如果显示的输入法键盘的关闭
+ * 
+ * @return Boolean  true：清除当前输入框焦点并关闭输入法
  */
 setCheckerTouchForKeyboardNeedHide(listener: (x: Int, y: Int) -> Boolean)
+
+    val outRect = Rect()
+    需判断view.getGlobalVisibleRect(outRect)
+    if (outRect.contains(x, y)) {}
+
+/**
+ * 设置检查，用以判断触摸位置是否允许触发当前如果显示的输入法键盘的关闭
+ * 
+ * @return Pair<是否清除焦点, 是否关闭输入法>
+ */
+setCheckerTouchForKeyboardNeedHideAndFocusClear(listener: (x: Int, y: Int) -> Pair<Boolean, Boolean>)
 ```
 
 ## 配置沉浸式状态栏参数
